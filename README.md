@@ -1,50 +1,91 @@
 # Thies Mining AI Platform - Dashboard
 
-Dashboard frontend untuk Thies Mining AI Platform yang dibangun dengan Next.js 15, React, dan Tailwind CSS.
+Modern dashboard frontend untuk Thies Mining AI Platform yang dibangun dengan Next.js 15, React, dan Tailwind CSS.
 
-## Fitur Utama
+## 🚀 Quick Start
 
-### 1. Overview Dashboard
+```bash
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env.local
+# Edit NEXT_PUBLIC_API_URL
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+npm start
+```
+
+**Dashboard URL**: http://localhost:3000
+
+---
+
+## ✨ Fitur Utama
+
+### 1. 🗺️ Overview Dashboard
 - Statistik real-time operasi mining
 - Status sistem dan kesehatan API
-- Aktivitas terbaru
-- Progress operasi harian
-- Map site overview (placeholder untuk integrasi map interaktif)
+- **Site Overview Map** - Interactive map dengan Lake Vermont coordinates
+- Weather overlay dengan real-time data
+- TARP alerts display
 
-### 2. Weather Dashboard
+### 2. 🌤️ Weather Dashboard
 - Monitoring cuaca real-time untuk lokasi mining
 - Peta interaktif dengan Leaflet
-- Alert cuaca otomatis
-- Grafik historis dan forecast
+- Alert cuaca otomatis (TARP)
+- Grafik historis dan forecast (ARIMA)
 - Analisis risiko berdasarkan kondisi cuaca
+- Auto-refresh setiap 5 menit
 
-### 3. Document Upload
+### 3. 📊 Weather Reports (NEW!)
+- View semua generated weather reports
+- Download reports (HTML, PDF)
+- Generate new reports on-demand
+- File statistics dan management
+
+### 4. 📤 Document Upload
 - Upload dokumen PDF dan DOCX
 - Proses otomatis dan indexing ke vector database
 - Manajemen dokumen yang sudah diupload
 - Tracking status upload dan processing
 
-### 4. RAG Query System
+### 5. 💬 RAG Query System (ENHANCED!)
+- **Chat-based interface** dengan session history
 - Query AI terhadap dokumen yang sudah diupload
 - Jawaban dengan sumber referensi
-- Example queries untuk memudahkan penggunaan
-- Response time tracking
+- Example queries dengan categories
+- Export chat functionality
+- Cache untuk faster responses
 
-### 5. Analytics
+### 6. 📈 Analytics (FIXED!)
 - Statistik penggunaan sistem
-- Top queries
+- Top queries leaderboard
 - Performance metrics
-- Visualisasi data (coming soon)
+- **Interactive charts** dengan Plotly.js
+- Daily activity tracking
 
-## Tech Stack
+### 7. 📧 Reporting (FIXED!)
+- Send reports via email (Gmail integration)
+- Create Gmail drafts
+- Generate reports dengan preview
+- Better error handling
+
+---
+
+## 🛠️ Tech Stack
 
 - **Framework**: Next.js 15 (App Router)
 - **UI Library**: React 18
 - **Styling**: Tailwind CSS
 - **Components**: Custom UI components + shadcn/ui
-- **Maps**: React Leaflet
+- **Maps**: React Leaflet (OpenStreetMap)
 - **Charts**: Plotly.js
 - **State Management**: React Hooks
+- **API Client**: Fetch API
 
 ## Instalasi
 
@@ -59,6 +100,47 @@ cp .env.local.example .env.local
 # Run development server
 npm run dev
 ```
+
+## Deployment
+
+### Option 1: Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy
+vercel --prod
+```
+
+**Environment Variables**:
+- `NEXT_PUBLIC_API_URL=https://api.yourdomain.com`
+
+### Option 2: Docker
+
+```bash
+# Build image
+docker build -t thies-mining-dashboard .
+
+# Run container
+docker run -d -p 3000:3000 \
+  -e NEXT_PUBLIC_API_URL=https://api.yourdomain.com \
+  thies-mining-dashboard
+```
+
+### Option 3: Traditional Server
+
+```bash
+# Build
+npm run build
+
+# Run with PM2
+pm2 start npm --name "thies-dashboard" -- start
+```
+
+**📖 Complete Deployment Guide**: See [DEPLOYMENT.md](../DEPLOYMENT.md)
+
+---
 
 ## Environment Variables
 
