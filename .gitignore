@@ -9,6 +9,12 @@ out/
 build/
 dist/
 
+# Datasets
+/Datasets
+Datasets/
+*.csv
+*.xlsx
+
 # Production
 *.log
 
