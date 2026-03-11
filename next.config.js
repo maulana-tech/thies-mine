@@ -7,14 +7,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/:path*',
-      },
-    ];
-  },
+  output: 'standalone',
+  // Remove rewrites for Vercel compatibility
+  // API calls will use NEXT_PUBLIC_API_URL directly
 };
 
 module.exports = nextConfig;
